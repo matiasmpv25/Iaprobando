@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Apuesta Simple</title>
+</head>
+<body>
+
+    <h2>Simulador de Ganancias</h2>
+
+    <label for="monto">Monto a apostar (virtual):</label>
+    <input type="number" id="monto" value="10">
+    <br><br>
+
+    <label for="cuota">Cuota del evento:</label>
+    <input type="number" id="cuota" value="1.5">
+    <br><br>
+
+    <button onclick="calcularGanancia()">Calcular Ganancia Potencial</button>
+
+    <p>Ganancia potencial: <span id="resultado"></span></p>
+
+    <script>
+        function calcularGanancia() {
+            // Obtener los valores de los inputs
+            const monto = document.getElementById('monto').value;
+            const cuota = document.getElementById('cuota').value;
+
+            // Validar que no estén vacíos
+            if (monto > 0 && cuota > 0) {
+                // Calcular la ganancia
+                const ganancia = monto * cuota;
+                // Mostrar el resultado en la etiqueta <span>
+                document.getElementById('resultado').innerText = `$${ganancia.toFixed(2)}`;
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, ingrese valores válidos.";
+            }
+        }
+    </script>
+
+</body>
+</html>
